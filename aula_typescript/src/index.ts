@@ -1,1 +1,3 @@
-console.log("Ola Mundo123");
+import { exemploIfLoop } from "./exemplos/primitivos";
+
+exemploIfLoop();
