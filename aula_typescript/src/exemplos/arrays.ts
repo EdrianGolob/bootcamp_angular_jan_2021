@@ -18,7 +18,7 @@ export function listaDeAluno(){
         })
     );*/
 
-    meuForEach(alunos,mostraAluno);
+    //meuForEach(alunos,mostraAluno);
 }
 
 function mostraAluno(item: any){
@@ -63,7 +63,7 @@ export function filtraAlunoPorNota(turma:Array<Aluno>, nota:number){
         
     }
     return turmaFiltrada;*/
-    return turma.filter((aluno) => Aluno.nota === nota);
+    return turma.filter((aluno) => aluno.nota === nota);
 
 }
 
@@ -82,8 +82,16 @@ export function tirarPontoTurma(turma: Array<Aluno>, pontoNegativo:number){
     return turmaNegativa;
 
 }
-/*
-export function criaAluno(){
-    const aluno = new Alunos('Edrian',8);
+export function mostraArray(){
+    const cliente1 = ['Edrian', 'Gabriel'];
+    const cliente2 = [...cliente1];
+    
+    const [primeiro, outroItem, terceiro] = cliente1;
+    
+    cliente2.push('Ricardo');
 
-}*/
+    console.log(cliente2);
+    console.log(cliente1);
+    console.log([primeiro, outroItem, terceiro]);
+}
+    

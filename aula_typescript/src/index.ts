@@ -1,11 +1,29 @@
-import {filtraAlunoPorNota} from './exemplos/exemplo-objetos';
-
-const turma = [
-    { nome: 'Edrian', nota: 10 },
-    { nome: 'Mario', nota: 8 },
-    { nome: 'Gabriel', nota: 5 },
-];
+import { mostraArray } from './exemplos/arrays';
+import {estaAprovado, filtraAlunoPorNota, imprimeNomeAluno, ImprimeTurma, mostraAluno, retornaAluno, Turma} from './exemplos/exemplo-objetos';
+import { exemploTipos } from './exemplos/primitivos';
 
 
-console.log(filtraAlunoPorNota(turma));
+mostraAluno();
+
+mostraArray();
+//imprimeNomeAluno();
+
+const alunoNovo = retornaAluno('Lucas', 8);
+console.log(alunoNovo);
+
+estaAprovado(0);
+exemploTipos();
+
+/*const turma:Turma = {
+    professor:{
+        nome: "Matheus",
+        materia:'informatica',
+        
+    }
+}
+ImprimeTurma(turma);*/
+
+
+
+
 
