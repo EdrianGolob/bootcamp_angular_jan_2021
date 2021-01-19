@@ -30,7 +30,6 @@ import { FiltrarProdutoPorCodigo } from "./exemplos/exercicio";
   const menorItem = menorPreco(api.items);
   console.log('Nome do produto mais barato')
   console.log(menorItem);
-
   
   const produtoFiltradoPorCodigo = FiltrarProdutoPorCodigo(api.items,'0002')
   console.log('filtro por código do produto')

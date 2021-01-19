@@ -13,8 +13,8 @@ export interface Pedido{
 export type Produtos = Array<Produto>;
 
 export function FiltrarProdutoPorNome(filtro: Produtos, descricao?:string){
-    return filtro.filter((item) => item.descricao === descricao);
- 
+    return filtro.filter((item) => item.descricao === descricao); 
+    
 }
 
 export function FiltrarProdutoPorCodigo(filtro: Produtos, produto?:string){
@@ -22,19 +22,12 @@ export function FiltrarProdutoPorCodigo(filtro: Produtos, produto?:string){
 }
 
 export function mediaPreco(mediaItems: Produtos) { 
-
-    let mediaPreco = mediaItems.reduce((soma, produto) => soma + produto.preco ,0) / (mediaItems.length)
-    return mediaPreco;
+    return mediaItems.reduce((soma, produto) => soma + produto.preco ,0) / (mediaItems.length)    
 }
-
 
 export function menorPreco(item: Produtos){
-    const menorItem = item;
-    const menor = menorItem.reduce(
-        (orig, busca) => orig.preco < busca.preco ? orig : busca
-      )
+      const menor = item.reduce((orig, busca) => orig.preco < busca.preco ? orig : busca)
       return(menor.descricao);
 }
-
 
 
