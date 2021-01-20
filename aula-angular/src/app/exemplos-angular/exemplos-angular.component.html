@@ -12,9 +12,11 @@
      #inputTurma 
 />
 
-<button (click)="atualizaTurma(inputTurma)">Abrir Lista</button>
+<button (click)="abrilista()">Abrir Lista</button>
 
-<div *ngIf="mostrar == '1'; else nenhumaLista">
+<div *ngIf="mostraLista; else listaFechada">
+
+<div *ngIf="listaAlunos?.length; else nenhumaLista">
     <ul>
         <li *ngFor="let aluno of listaAlunos">            
             Nome: {{ aluno.nome }}
@@ -22,6 +24,11 @@
         </li>
     </ul>
 </div>
+</div>
 <ng-template #nenhumaLista>
-    <p>Para abrir a lista de alunos, clique em Abrir Lista</p>
+    <p>Nenuma lista de alunos disponivel.</p>
+</ng-template>
+
+<ng-template #listaFechada>
+    <p>Para abrir a lista de alunos, clique em "Abrir Lista".</p>
 </ng-template>

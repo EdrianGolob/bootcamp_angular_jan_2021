@@ -21,4 +21,5 @@ dataNascimento:'2017-06-29'},
    alert(`Turma ${turma} selecionada.`);
    /*(selecaoTurma)="alertaTurma($event) pertence ao app.component.html*/
   }
+
 }
