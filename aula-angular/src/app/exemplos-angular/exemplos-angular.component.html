@@ -14,7 +14,7 @@
 
 <button (click)="atualizaTurma(inputTurma)">Abrir Lista</button>
 
-<div *ngIf="marc == '1'; else nenhumaLista">
+<div *ngIf="mostrar == '1'; else nenhumaLista">
     <ul>
         <li *ngFor="let aluno of listaAlunos">            
             Nome: {{ aluno.nome }}
@@ -23,5 +23,5 @@
     </ul>
 </div>
 <ng-template #nenhumaLista>
-    <p>Lista indisponível</p>
+    <p>Para abrir a lista de alunos, clique em Abrir Lista</p>
 </ng-template>

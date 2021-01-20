@@ -15,7 +15,7 @@ export class ExemplosAngularComponent {
   listaAlunos!: Alunos;
   
   turma     = 'Angular';
-  marc     = '0';
+  mostrar     = '0';
 
   @Output()
   abrir = new EventEmitter<string>();
@@ -27,12 +27,13 @@ export class ExemplosAngularComponent {
   atualizaTurma(input: any){
   
 
-    if (this.marc === '1'){
-      this.marc = '0';
+    if (this.mostrar === '1'){
+      this.mostrar = '0';
   } else{
-    this.marc = '1'
+    this.mostrar = '1'
   }
-    this.abrir.emit(this.marc)
+    console.log(this.mostrar);
+    this.abrir.emit(this.mostrar)
     console.log('Botão');
     this.turma = input.value;
     console.log(this.listaAlunos);
