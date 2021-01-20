@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Alunos } from './alunos';
 
 @Component({
   selector: 'app-root',
@@ -7,5 +8,16 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'aula-angular';
-  nome = "Edrian";
+  nome = "Gabriel";
+
+  listaAlunos:Alunos  =[
+    {nome: 'Edrian',
+  dataNascimento: '1990-01-09'},
+  {nome:'Gabriel',
+dataNascimento:'2017-06-29'},
+  ]
+
+  alertaTurma(turma: string){
+    alert(`Turma ${turma} selecionada.`);
+  }
 }
