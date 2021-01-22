@@ -1,9 +1,17 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { fileURLToPath } from 'url';
 import { HomeComponent } from './home.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent}
+  { path: '', component: HomeComponent,
+    children: [{
+      path: 'clientes', loadChildren: () =>
+      import('../clientes/clientes.module').then(
+        (file) => file.ClientesModule
+        )
+    }]
+  },
 ];
 
 @NgModule({
