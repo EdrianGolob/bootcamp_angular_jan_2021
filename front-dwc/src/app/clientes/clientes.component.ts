@@ -45,6 +45,8 @@ export class ClientesComponent implements OnInit, OnDestroy {
     this.subscriptions.add(this.ClientesService.retornaClientes().subscribe(
       (items) => {
         this.items = items;
+      }, (error) => {
+        console.log(error)
       })
     );
   }
