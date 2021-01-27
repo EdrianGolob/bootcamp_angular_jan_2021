@@ -1,7 +1,9 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { PoBreadcrumb, PoPageAction, PoTableAction, PoTableColumn } from '@po-ui/ng-components';
-import { Subscription } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { ClientesService } from './clientes.service';
+import { Cliente, Clientes } from './models/clientes';
 
 @Component({
   selector: 'app-clientes',
@@ -10,7 +12,7 @@ import { ClientesService } from './clientes.service';
 })
 
 
-export class ClientesComponent implements OnInit, OnDestroy {
+export class ClientesComponent implements OnInit {
   private subscriptions = new Subscription();
 
   actions:Array<PoPageAction> = [{
@@ -25,7 +27,8 @@ export class ClientesComponent implements OnInit, OnDestroy {
     ],
   };
 
-  items: any;
+
+  items$: Observable<Clientes>;
 
   colunas: Array<PoTableColumn> = [
     {property: 'id', label: 'ID', type: 'string'},
@@ -39,8 +42,14 @@ export class ClientesComponent implements OnInit, OnDestroy {
     {action: this.editar.bind(this) , label: 'Editar'},
   ];
 
-  constructor(private ClientesService: ClientesService) { }
+  constructor(private ClientesService: ClientesService, private router:Router
+    ) { }
 
+  ngOnInit(): void {
+    this.items$ = this.ClientesService.retornaClientes();
+  }
+// linhas abaixo foram substituidas pela Linha de cima usando $ na declaracao de items
+/*
   ngOnInit(): void {
     this.subscriptions.add(this.ClientesService.retornaClientes().subscribe(
       (items) => {
@@ -54,9 +63,15 @@ export class ClientesComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void{
     this.subscriptions.unsubscribe();
   }
+*/
 
-  visualizar(){}
 
-  editar(){}
+  visualizar(cliente: Cliente){
+    this.router.navigate(['home/clientes/view', cliente.id]);
+  }
+
+  editar(){
+    //this.router.navigate(['home/clientes/edit', cliente.id]);
+  }
 
 }
