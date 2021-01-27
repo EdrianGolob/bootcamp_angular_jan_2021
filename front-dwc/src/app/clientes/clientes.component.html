@@ -1,14 +1,13 @@
 <po-page-list
-  p-title = "Clientes"
-  [p-actions] = "actions"
-  [p-breadcrumb] = "breadcrumb"
+  p-title="Clientes"
+  [p-actions]="actions"
+  [p-breadcrumb]="breadcrumb"
 >
   <div *ngIf="items$ | async as items">
     <po-table
-    [p-columns]="colunas"
-    [p-items]="items"
-    [p-actions]="tableActions"
-
-    ></po-table>>
+      [p-columns]="colunas"
+      [p-items]="items"
+      [p-actions]="tableActions"
+    ></po-table>
   </div>
 </po-page-list>

@@ -1,24 +1,30 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { PoBreadcrumb, PoPageAction, PoTableAction, PoTableColumn } from '@po-ui/ng-components';
+import {
+  PoBreadcrumb,
+  PoPageAction,
+  PoTableAction,
+  PoTableColumn,
+} from '@po-ui/ng-components';
 import { Observable, Subscription } from 'rxjs';
+import { CidadesService } from '../shared/servicos/cidades.service';
+import { EstadosService } from '../shared/servicos/estados.service';
 import { ClientesService } from './clientes.service';
 import { Cliente, Clientes } from './models/clientes';
 
 @Component({
   selector: 'app-clientes',
   templateUrl: './clientes.component.html',
-  styleUrls: ['./clientes.component.css']
+  styleUrls: ['./clientes.component.css'],
 })
 
 
 export class ClientesComponent implements OnInit {
-  private subscriptions = new Subscription();
-
-  actions:Array<PoPageAction> = [{
-    label:'Incluir',
-    url:'home/clientes/new',
-   },
+  actions: Array<PoPageAction> = [
+    {
+      label: 'Incluir',
+      url: 'home/clientes/new',
+    },
   ];
 
   breadcrumb: PoBreadcrumb = {
@@ -70,7 +76,7 @@ export class ClientesComponent implements OnInit {
     this.router.navigate(['home/clientes/view', cliente.id]);
   }
 
-  editar(){
+  editar() {
     //this.router.navigate(['home/clientes/edit', cliente.id]);
   }
 
