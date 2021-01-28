@@ -10,8 +10,15 @@ const routes: Routes = [
       import('../clientes/clientes.module').then(
         (file) => file.ClientesModule
         )
+    },
+    {
+      path: 'produtos', loadChildren: () =>
+      import('../produtos/produtos.module').then(
+        (file) => file.ProdutosModule
+        )
     }]
-  },
+  }
+  ,
 ];
 
 @NgModule({
