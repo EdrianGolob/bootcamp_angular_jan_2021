@@ -1,4 +1,5 @@
 import { Injectable } from '@nestjs/common';
+import { PoPageDynamicDetailOptions, PoPageDynamicEditComponent, PoPageDynamicEditOptions, PoPageDynamicTableOptions } from '@po-ui/ng-templates';
 import { Utils } from 'src/utils/utils';
 import { produtos } from './db/produtos.data';
 import { Produto, Produtos, ProdutosAPI } from './produtos.interface';
@@ -38,4 +39,33 @@ export class ProdutosService {
     this.produtos = Utils.update(id, updatedProduto, this.produtos);
     return this.getProduto(id);
   }
+
+  tableMetadata(): PoPageDynamicTableOptions{
+    return {
+      fields: [
+        {property: 'categoria', label: 'Categoria'},
+        {property: 'unidadeMedida', label: 'Unidade de Medida'},
+      ],
+    }
+  }
+
+  editMetadata(): PoPageDynamicEditOptions {
+
+  return {
+      fields: [
+        {property: 'categoria', label: 'Categoria'},
+        {property: 'unidadeMedida', label: 'Unidade de Medida'},
+      ],
+    }
+  }
+
+  viewMetadata(): PoPageDynamicDetailOptions {
+
+    return {
+        fields: [
+          {property: 'categoria', label: 'Categoria'},
+          {property: 'unidadeMedida', label: 'Unidade de Medida'},
+        ],
+      }
+    }
 }
